@@ -109,12 +109,12 @@ def predict(vehicle: VehicleInput):
     
     # Get dynamic price with market intelligence
     try:
-        # Check if database is available (skip if not)
+        # Check if database is configured
         import os
         db_host = os.getenv('POSTGRES_HOST', '')
         
-        if db_host and 'database-1' not in db_host:
-            # Database available, use dynamic pricing
+        if db_host:
+            # Database configured, try dynamic pricing
             dynamic_result = pricing_engine.get_dynamic_price(
                 ml_prediction=ml_price,
                 brand=brand_for_market,
@@ -131,12 +131,13 @@ def predict(vehicle: VehicleInput):
             market_context = dynamic_result.get("market_context", {})
             pricing_breakdown = dynamic_result.get("pricing_breakdown", {})
         else:
-            # Database not available, use ML prediction only
+            # Database not configured, use ML prediction only
             raise Exception("Database not configured")
         
     except Exception as e:
         # Fallback to ML-only if dynamic pricing fails
-        if "database" not in str(e).lower() and "could not translate" not in str(e).lower():
+        error_msg = str(e).lower()
+        if "database not configured" not in error_msg:
             print(f"Dynamic pricing failed: {e}. Using ML prediction only.")
         price = ml_price
         market_data_available = False
