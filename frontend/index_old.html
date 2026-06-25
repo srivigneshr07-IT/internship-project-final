@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>AI Powered Vehicle Valuation</title>
+
+<link rel="stylesheet" href="css/style.css">
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>🚗 AI Powered Vehicle Valuation</h1>
+
+<p class="subtitle">
+
+Get an Instant AI Estimated Market Price
+
+</p>
+
+<form id="valuationForm">
+
+<label>Brand</label>
+
+<select id="oem"></select>
+
+<label>Model</label>
+
+<select id="model"></select>
+
+<label>Variant</label>
+
+<select id="variant"></select>
+
+<label>Fuel</label>
+
+<select id="fuel"></select>
+
+<label>Transmission</label>
+
+<select id="transmission"></select>
+
+<label>Body</label>
+
+<input
+type="text"
+id="body"
+value="Hatchback"
+>
+
+<label>Owner Type</label>
+
+<input
+type="text"
+id="owner_type"
+value="first"
+>
+
+<label>City</label>
+
+<input
+type="text"
+id="City"
+value="chennai"
+>
+
+<label>State</label>
+
+<input
+type="text"
+id="state"
+value="tamilnadu"
+>
+
+<label>Mileage</label>
+
+<input
+type="number"
+id="km"
+required
+>
+
+<label>Car Age</label>
+
+<input
+type="number"
+id="car_age"
+required
+>
+
+<label>Premium Brand</label>
+
+<input
+type="number"
+id="premium_brand"
+value="0"
+>
+
+<button type="submit">
+
+Predict Vehicle Price
+
+</button>
+
+</form>
+
+<div class="result-card">
+
+<h2>AI Vehicle Valuation Result</h2>
+
+<div id="loading" class="loading">
+
+🤖 AI is analysing your vehicle...
+
+</div>
+
+<div id="resultContent">
+
+<h1 id="price">
+
+₹ --
+
+</h1>
+
+<p>
+
+<strong>Status :</strong>
+
+<span id="status">
+
+Waiting for prediction...
+
+</span>
+
+</p>
+
+<p>
+
+<strong>Model :</strong>
+
+XGBoost v1.0
+
+</p>
+
+<p>
+
+<strong>Currency :</strong>
+
+INR
+
+</p>
+
+</div>
+
+</div>
+
+<div class="history-card">
+
+<h2>
+
+Recent Predictions
+
+</h2>
+
+<ul id="historyList">
+
+</ul>
+
+</div>
+
+</div>
+
+<script src="js/app.js"></script>
+
+</body>
+
+</html>

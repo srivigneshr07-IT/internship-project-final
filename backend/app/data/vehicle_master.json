@@ -1,0 +1,924 @@
+{
+  "maruti suzuki": {
+    "swift": {
+      "variants": ["LXI", "VXI", "ZXI", "ZXI Plus"],
+      "fuel": ["Petrol", "CNG"],
+      "transmission": ["Manual", "Automatic"],
+      "body": "Hatchback",
+      "premium_brand": 0
+    },
+    "baleno": {
+      "variants": ["Sigma", "Delta", "Alpha", "RS"],
+      "fuel": ["Petrol"],
+      "transmission": ["Manual", "Automatic"],
+      "body": "Hatchback",
+      "premium_brand": 0
+    },
+    "dzire": {
+      "variants": ["LXi", "VXi", "ZXi"],
+      "fuel": ["Petrol"],
+      "transmission": ["Manual", "Automatic"],
+      "body": "Sedan",
+      "premium_brand": 0
+    },
+    "fronx": {
+      "variants": ["Sigma", "Delta", "Alpha"],
+      "fuel": ["Petrol"],
+      "transmission": ["Manual", "Automatic"],
+      "body": "Crossover",
+      "premium_brand": 0
+    },
+    "brezza": {
+      "variants": ["LXi", "VXi", "ZXi"],
+      "fuel": ["Petrol", "Hybrid"],
+      "transmission": ["Manual", "Automatic"],
+      "body": "SUV",
+      "premium_brand": 0
+    },
+    "grand vitara": {
+      "variants": ["Sigma", "Delta", "Alpha", "Zeta"],
+      "fuel": ["Petrol", "Hybrid"],
+      "transmission": ["Manual", "Automatic"],
+      "body": "SUV",
+      "premium_brand": 0
+    },
+    "celerio": {
+      "variants": ["LX", "VXI", "ZXI"],
+      "fuel": ["Petrol", "CNG"],
+      "transmission": ["Manual", "Automatic"],
+      "body": "Hatchback",
+      "premium_brand": 0
+    },
+    "wagon r": {
+      "variants": ["LXi", "VXi", "ZXi"],
+      "fuel": ["Petrol", "CNG"],
+      "transmission": ["Manual", "Automatic"],
+      "body": "Hatchback",
+      "premium_brand": 0
+    },
+    "alto": {
+      "variants": ["LX", "LXi", "VXi"],
+      "fuel": ["Petrol"],
+      "transmission": ["Manual"],
+      "body": "Hatchback",
+      "premium_brand": 0
+    },
+    "ignis": {
+      "variants": ["Delta", "Zeta", "Alpha"],
+      "fuel": ["Petrol"],
+      "transmission": ["Manual", "Automatic"],
+      "body": "Crossover",
+      "premium_brand": 0
+    },
+    "ertiga": {
+      "variants": ["VXi", "ZXi", "ZXi Plus"],
+      "fuel": ["Petrol", "CNG"],
+      "transmission": ["Manual", "Automatic"],
+      "body": "MUV",
+      "premium_brand": 0
+    },
+    "xl6": {
+      "variants": ["Sigma", "Zeta", "Alpha"],
+      "fuel": ["Petrol"],
+      "transmission": ["Manual", "Automatic"],
+      "body": "MPV",
+      "premium_brand": 0
+    },
+    "jimny": {
+      "variants": ["Zeta", "Alpha"],
+      "fuel": ["Petrol"],
+      "transmission": ["Manual", "Automatic"],
+      "body": "SUV",
+      "premium_brand": 0
+    },
+    "invicto": {
+      "variants": ["LX", "LXi"],
+      "fuel": ["Petrol"],
+      "transmission": ["Manual", "Automatic"],
+      "body": "SUV",
+      "premium_brand": 0
+    }
+  },
+  "hyundai": {
+    "creta": {
+      "variants": ["E", "S", "SX", "SX(O)", "N Line"],
+      "fuel": ["Petrol", "Diesel", "Hybrid"],
+      "transmission": ["Manual", "Automatic", "CVT"],
+      "body": "SUV",
+      "premium_brand": 0
+    },
+    "venue": {
+      "variants": ["E", "S", "SX", "SX(O)"],
+      "fuel": ["Petrol", "Diesel"],
+      "transmission": ["Manual", "Automatic", "DCT"],
+      "body": "SUV",
+      "premium_brand": 0
+    },
+    "i20": {
+      "variants": ["Magna", "Sportz", "Asta"],
+      "fuel": ["Petrol"],
+      "transmission": ["Manual", "Automatic", "DCT"],
+      "body": "Hatchback",
+      "premium_brand": 0
+    },
+    "verna": {
+      "variants": ["S", "SX", "SX(O)", "SX(O) Turbo"],
+      "fuel": ["Petrol", "Diesel"],
+      "transmission": ["Manual", "Automatic"],
+      "body": "Sedan",
+      "premium_brand": 0
+    },
+    "tucson": {
+      "variants": ["GL", "GLS", "Top"],
+      "fuel": ["Petrol", "Diesel"],
+      "transmission": ["Manual", "Automatic"],
+      "body": "SUV",
+      "premium_brand": 0
+    },
+    "kona electric": {
+      "variants": ["Premium", "Prestige"],
+      "fuel": ["Electric"],
+      "transmission": ["Automatic"],
+      "body": "SUV",
+      "premium_brand": 0
+    },
+    "grand i10": {
+      "variants": ["Magna", "Sportz", "Asta"],
+      "fuel": ["Petrol"],
+      "transmission": ["Manual", "Automatic"],
+      "body": "Hatchback",
+      "premium_brand": 0
+    },
+    "elantra": {
+      "variants": ["SX", "SX(O)"],
+      "fuel": ["Petrol"],
+      "transmission": ["Manual", "Automatic"],
+      "body": "Sedan",
+      "premium_brand": 0
+    },
+    "santro": {
+      "variants": ["Era", "Magna", "Asta"],
+      "fuel": ["Petrol"],
+      "transmission": ["Manual", "Automatic"],
+      "body": "Hatchback",
+      "premium_brand": 0
+    }
+  },
+  "honda": {
+    "city": {
+      "variants": ["SV", "V", "ZX"],
+      "fuel": ["Petrol"],
+      "transmission": ["Manual", "CVT"],
+      "body": "Sedan",
+      "premium_brand": 0
+    },
+    "amaze": {
+      "variants": ["S", "V", "VX"],
+      "fuel": ["Petrol", "Diesel"],
+      "transmission": ["Manual", "CVT"],
+      "body": "Sedan",
+      "premium_brand": 0
+    },
+    "jazz": {
+      "variants": ["S", "V", "ZX"],
+      "fuel": ["Petrol"],
+      "transmission": ["Manual", "CVT"],
+      "body": "Hatchback",
+      "premium_brand": 0
+    },
+    "wr-v": {
+      "variants": ["S", "V", "VX"],
+      "fuel": ["Petrol"],
+      "transmission": ["Manual", "CVT"],
+      "body": "Crossover",
+      "premium_brand": 0
+    },
+    "civic": {
+      "variants": ["V", "VX"],
+      "fuel": ["Petrol"],
+      "transmission": ["Manual", "CVT"],
+      "body": "Sedan",
+      "premium_brand": 0
+    },
+    "cr-v": {
+      "variants": ["VX", "ZX"],
+      "fuel": ["Petrol"],
+      "transmission": ["Automatic"],
+      "body": "SUV",
+      "premium_brand": 0
+    }
+  },
+  "toyota": {
+    "innova": {
+      "variants": ["Crysta", "Crysta ZX", "Crysta VX"],
+      "fuel": ["Petrol", "Diesel"],
+      "transmission": ["Manual", "Automatic"],
+      "body": "MUV",
+      "premium_brand": 0
+    },
+    "crysta": {
+      "variants": ["GX", "VX", "ZX"],
+      "fuel": ["Petrol", "Diesel"],
+      "transmission": ["Manual", "Automatic"],
+      "body": "MUV",
+      "premium_brand": 0
+    },
+    "hycross": {
+      "variants": ["G", "V", "Z"],
+      "fuel": ["Hybrid"],
+      "transmission": ["Automatic"],
+      "body": "SUV",
+      "premium_brand": 0
+    },
+    "fortuner": {
+      "variants": ["4x2", "4x4", "TRD"],
+      "fuel": ["Petrol", "Diesel"],
+      "transmission": ["Manual", "Automatic"],
+      "body": "SUV",
+      "premium_brand": 0
+    },
+    "hyryder": {
+      "variants": ["E", "S", "G"],
+      "fuel": ["Petrol", "Hybrid"],
+      "transmission": ["Manual", "Automatic"],
+      "body": "SUV",
+      "premium_brand": 0
+    },
+    "camry": {
+      "variants": ["Hybrid"],
+      "fuel": ["Hybrid"],
+      "transmission": ["Automatic"],
+      "body": "Sedan",
+      "premium_brand": 0
+    },
+    "glanza": {
+      "variants": ["G", "V", "G CVT"],
+      "fuel": ["Petrol"],
+      "transmission": ["Manual", "Automatic"],
+      "body": "Hatchback",
+      "premium_brand": 0
+    },
+    "urban cruiser": {
+      "variants": ["G", "V"],
+      "fuel": ["Petrol"],
+      "transmission": ["Manual", "Automatic"],
+      "body": "SUV",
+      "premium_brand": 0
+    }
+  },
+  "mahindra": {
+    "scorpio": {
+      "variants": ["S3", "S5", "S7"],
+      "fuel": ["Petrol", "Diesel"],
+      "transmission": ["Manual", "Automatic"],
+      "body": "SUV",
+      "premium_brand": 0
+    },
+    "bolero": {
+      "variants": ["B4", "B6", "B6O"],
+      "fuel": ["Diesel"],
+      "transmission": ["Manual"],
+      "body": "SUV",
+      "premium_brand": 0
+    },
+    "thar": {
+      "variants": ["AX", "LX", "AXO"],
+      "fuel": ["Petrol", "Diesel"],
+      "transmission": ["Manual", "Automatic"],
+      "body": "SUV",
+      "premium_brand": 0
+    },
+    "xuv700": {
+      "variants": ["MX", "AX", "AX7", "AX7L"],
+      "fuel": ["Petrol", "Diesel"],
+      "transmission": ["Manual", "Automatic"],
+      "body": "SUV",
+      "premium_brand": 0
+    },
+    "xuv300": {
+      "variants": ["W4", "W6", "W8"],
+      "fuel": ["Petrol", "Diesel"],
+      "transmission": ["Manual", "Automatic"],
+      "body": "SUV",
+      "premium_brand": 0
+    },
+    "marazzo": {
+      "variants": ["M2", "M4", "M6"],
+      "fuel": ["Diesel"],
+      "transmission": ["Manual"],
+      "body": "MUV",
+      "premium_brand": 0
+    },
+    "gloster": {
+      "variants": ["N10", "N11"],
+      "fuel": ["Diesel"],
+      "transmission": ["Manual", "Automatic"],
+      "body": "SUV",
+      "premium_brand": 0
+    }
+  },
+  "tata": {
+    "nexon": {
+      "variants": ["XE", "XM", "XZ"],
+      "fuel": ["Petrol", "Diesel", "Electric"],
+      "transmission": ["Manual", "Automatic"],
+      "body": "SUV",
+      "premium_brand": 0
+    },
+    "altroz": {
+      "variants": ["XE", "XM", "XZ"],
+      "fuel": ["Petrol", "Diesel", "CNG"],
+      "transmission": ["Manual", "Automatic"],
+      "body": "Hatchback",
+      "premium_brand": 0
+    },
+    "safari": {
+      "variants": ["XE", "XM", "XZ"],
+      "fuel": ["Petrol"],
+      "transmission": ["Manual", "Automatic"],
+      "body": "SUV",
+      "premium_brand": 0
+    },
+    "hexa": {
+      "variants": ["XE", "XM", "XZ"],
+      "fuel": ["Diesel"],
+      "transmission": ["Manual", "Automatic"],
+      "body": "SUV",
+      "premium_brand": 0
+    },
+    "tiago": {
+      "variants": ["XE", "XT", "XZ"],
+      "fuel": ["Petrol", "CNG"],
+      "transmission": ["Manual", "Automatic"],
+      "body": "Hatchback",
+      "premium_brand": 0
+    },
+    "punch": {
+      "variants": ["XE", "XM", "XZ"],
+      "fuel": ["Petrol"],
+      "transmission": ["Manual", "Automatic"],
+      "body": "SUV",
+      "premium_brand": 0
+    },
+    "harrier": {
+      "variants": ["XE", "XM", "XZ"],
+      "fuel": ["Diesel"],
+      "transmission": ["Automatic"],
+      "body": "SUV",
+      "premium_brand": 0
+    }
+  },
+  "kia": {
+    "seltos": {
+      "variants": ["HTE", "HTK", "HTX", "GT Line"],
+      "fuel": ["Petrol", "Diesel"],
+      "transmission": ["Manual", "Automatic", "DCT"],
+      "body": "SUV",
+      "premium_brand": 0
+    },
+    "sonet": {
+      "variants": ["HTE", "HTK", "HTX", "GT Line"],
+      "fuel": ["Petrol", "Diesel"],
+      "transmission": ["Manual", "Automatic", "DCT"],
+      "body": "SUV",
+      "premium_brand": 0
+    },
+    "carnival": {
+      "variants": ["Premium", "Prestige", "Limousine"],
+      "fuel": ["Petrol"],
+      "transmission": ["Automatic"],
+      "body": "MPV",
+      "premium_brand": 0
+    },
+    "carens": {
+      "variants": ["Horizon", "Prestige", "Luxury"],
+      "fuel": ["Petrol", "Diesel", "CNG"],
+      "transmission": ["Manual", "Automatic"],
+      "body": "MPV",
+      "premium_brand": 0
+    }
+  },
+  "mg": {
+    "hector": {
+      "variants": ["Style", "Super", "Savvy"],
+      "fuel": ["Petrol", "Diesel"],
+      "transmission": ["Manual", "Automatic"],
+      "body": "SUV",
+      "premium_brand": 0
+    },
+    "hector plus": {
+      "variants": ["Super", "Sharp"],
+      "fuel": ["Petrol"],
+      "transmission": ["Automatic"],
+      "body": "SUV",
+      "premium_brand": 0
+    },
+    "zs ev": {
+      "variants": ["Excite", "Exclusive"],
+      "fuel": ["Electric"],
+      "transmission": ["Automatic"],
+      "body": "SUV",
+      "premium_brand": 0
+    },
+    "astor": {
+      "variants": ["Style", "Super", "Savvy"],
+      "fuel": ["Petrol"],
+      "transmission": ["Manual", "Automatic"],
+      "body": "SUV",
+      "premium_brand": 0
+    },
+    "gloster": {
+      "variants": ["Smart", "Sharp", "Savvy"],
+      "fuel": ["Diesel"],
+      "transmission": ["Automatic"],
+      "body": "SUV",
+      "premium_brand": 0
+    }
+  },
+  "volkswagen": {
+    "virtus": {
+      "variants": ["Trendline", "Comfortline", "Highline"],
+      "fuel": ["Petrol"],
+      "transmission": ["Manual", "Automatic"],
+      "body": "Sedan",
+      "premium_brand": 0
+    },
+    "taigun": {
+      "variants": ["Trendline", "Comfortline", "Highline"],
+      "fuel": ["Petrol"],
+      "transmission": ["Manual", "Automatic"],
+      "body": "SUV",
+      "premium_brand": 0
+    },
+    "polo": {
+      "variants": ["Active", "GT"],
+      "fuel": ["Petrol"],
+      "transmission": ["Manual", "Automatic"],
+      "body": "Hatchback",
+      "premium_brand": 0
+    },
+    "vento": {
+      "variants": ["Trendline", "Comfortline", "Highline"],
+      "fuel": ["Petrol", "Diesel"],
+      "transmission": ["Manual", "Automatic"],
+      "body": "Sedan",
+      "premium_brand": 0
+    },
+    "tiguan": {
+      "variants": ["Sportline", "Highline"],
+      "fuel": ["Petrol"],
+      "transmission": ["Automatic"],
+      "body": "SUV",
+      "premium_brand": 0
+    }
+  },
+  "skoda": {
+    "kodiaq": {
+      "variants": ["L&K"],
+      "fuel": ["Petrol"],
+      "transmission": ["Automatic"],
+      "body": "SUV",
+      "premium_brand": 0
+    },
+    "octavia": {
+      "variants": ["Style", "L&K"],
+      "fuel": ["Petrol"],
+      "transmission": ["Automatic"],
+      "body": "Sedan",
+      "premium_brand": 0
+    },
+    "superb": {
+      "variants": ["Style", "L&K"],
+      "fuel": ["Petrol"],
+      "transmission": ["Automatic"],
+      "body": "Sedan",
+      "premium_brand": 0
+    },
+    "rapid": {
+      "variants": ["Active", "Ambition", "Style"],
+      "fuel": ["Petrol"],
+      "transmission": ["Manual", "Automatic"],
+      "body": "Sedan",
+      "premium_brand": 0
+    },
+    "slavia": {
+      "variants": ["Active", "Ambition", "Style"],
+      "fuel": ["Petrol"],
+      "transmission": ["Manual", "Automatic"],
+      "body": "Sedan",
+      "premium_brand": 0
+    }
+  },
+  "renault": {
+    "kwid": {
+      "variants": ["RXE", "RXL", "RXT"],
+      "fuel": ["Petrol"],
+      "transmission": ["Manual"],
+      "body": "Hatchback",
+      "premium_brand": 0
+    },
+    "triber": {
+      "variants": ["RXE", "RXL", "RXT"],
+      "fuel": ["Petrol"],
+      "transmission": ["Manual", "Automatic"],
+      "body": "MPV",
+      "premium_brand": 0
+    },
+    "duster": {
+      "variants": ["RxE", "RxL", "RxT"],
+      "fuel": ["Petrol", "Diesel"],
+      "transmission": ["Manual", "Automatic"],
+      "body": "SUV",
+      "premium_brand": 0
+    },
+    "captur": {
+      "variants": ["RXZ", "RXZ Premium"],
+      "fuel": ["Petrol"],
+      "transmission": ["Automatic"],
+      "body": "SUV",
+      "premium_brand": 0
+    }
+  },
+  "nissan": {
+    "magnite": {
+      "variants": ["XL", "XV", "XV Premium"],
+      "fuel": ["Petrol"],
+      "transmission": ["Manual", "Automatic"],
+      "body": "SUV",
+      "premium_brand": 0
+    },
+    "kicks": {
+      "variants": ["XL", "XV"],
+      "fuel": ["Petrol"],
+      "transmission": ["Manual", "Automatic"],
+      "body": "SUV",
+      "premium_brand": 0
+    },
+    "sunny": {
+      "variants": ["XL", "XV"],
+      "fuel": ["Petrol"],
+      "transmission": ["Manual", "Automatic"],
+      "body": "Sedan",
+      "premium_brand": 0
+    }
+  },
+  "ford": {
+    "ecosport": {
+      "variants": ["Ambiente", "Titanium", "Titanium Plus"],
+      "fuel": ["Petrol", "Diesel"],
+      "transmission": ["Manual", "Automatic"],
+      "body": "SUV",
+      "premium_brand": 0
+    },
+    "aspire": {
+      "variants": ["Titanium", "Titanium+"],
+      "fuel": ["Petrol", "Diesel"],
+      "transmission": ["Manual", "Automatic"],
+      "body": "Sedan",
+      "premium_brand": 0
+    },
+    "freestyle": {
+      "variants": ["Titanium", "Titanium Plus"],
+      "fuel": ["Petrol"],
+      "transmission": ["Manual"],
+      "body": "Crossover",
+      "premium_brand": 0
+    },
+    "mustang": {
+      "variants": ["EcoBoost"],
+      "fuel": ["Petrol"],
+      "transmission": ["Automatic"],
+      "body": "Coupe",
+      "premium_brand": 1
+    }
+  },
+  "jeep": {
+    "compass": {
+      "variants": ["Sport", "Longitude", "Limited"],
+      "fuel": ["Petrol", "Diesel"],
+      "transmission": ["Manual", "Automatic"],
+      "body": "SUV",
+      "premium_brand": 0
+    },
+    "wrangler": {
+      "variants": ["Sport", "Sahara"],
+      "fuel": ["Petrol"],
+      "transmission": ["Automatic"],
+      "body": "SUV",
+      "premium_brand": 1
+    },
+    "cherokee": {
+      "variants": ["Latitude", "Limited"],
+      "fuel": ["Petrol"],
+      "transmission": ["Automatic"],
+      "body": "SUV",
+      "premium_brand": 1
+    }
+  },
+  "bmw": {
+    "3 series": {
+      "variants": ["320i", "330i"],
+      "fuel": ["Petrol"],
+      "transmission": ["Automatic"],
+      "body": "Sedan",
+      "premium_brand": 1
+    },
+    "5 series": {
+      "variants": ["520d", "530i"],
+      "fuel": ["Diesel", "Petrol"],
+      "transmission": ["Automatic"],
+      "body": "Sedan",
+      "premium_brand": 1
+    },
+    "x1": {
+      "variants": ["sDrive", "xDrive"],
+      "fuel": ["Petrol"],
+      "transmission": ["Automatic"],
+      "body": "SUV",
+      "premium_brand": 1
+    },
+    "x3": {
+      "variants": ["xDrive30i"],
+      "fuel": ["Petrol"],
+      "transmission": ["Automatic"],
+      "body": "SUV",
+      "premium_brand": 1
+    }
+  },
+  "mercedes benz": {
+    "c-class": {
+      "variants": ["C200", "C220"],
+      "fuel": ["Petrol", "Diesel"],
+      "transmission": ["Automatic"],
+      "body": "Sedan",
+      "premium_brand": 1
+    },
+    "e-class": {
+      "variants": ["E200", "E220"],
+      "fuel": ["Petrol", "Diesel"],
+      "transmission": ["Automatic"],
+      "body": "Sedan",
+      "premium_brand": 1
+    },
+    "s-class": {
+      "variants": ["S350", "S500"],
+      "fuel": ["Petrol"],
+      "transmission": ["Automatic"],
+      "body": "Sedan",
+      "premium_brand": 1
+    },
+    "glc": {
+      "variants": ["GLC 200", "GLC 300"],
+      "fuel": ["Petrol"],
+      "transmission": ["Automatic"],
+      "body": "SUV",
+      "premium_brand": 1
+    }
+  },
+  "audi": {
+    "a3": {
+      "variants": ["Premium", "Premium Plus"],
+      "fuel": ["Petrol"],
+      "transmission": ["Automatic"],
+      "body": "Sedan",
+      "premium_brand": 1
+    },
+    "a4": {
+      "variants": ["Premium", "Premium Plus"],
+      "fuel": ["Petrol"],
+      "transmission": ["Automatic"],
+      "body": "Sedan",
+      "premium_brand": 1
+    },
+    "q3": {
+      "variants": ["Premium", "Technology"],
+      "fuel": ["Petrol"],
+      "transmission": ["Automatic"],
+      "body": "SUV",
+      "premium_brand": 1
+    },
+    "q5": {
+      "variants": ["Premium", "Technology"],
+      "fuel": ["Petrol"],
+      "transmission": ["Automatic"],
+      "body": "SUV",
+      "premium_brand": 1
+    }
+  },
+  "volvo": {
+    "xc40": {
+      "variants": ["Momentum", "R-Design"],
+      "fuel": ["Petrol"],
+      "transmission": ["Automatic"],
+      "body": "SUV",
+      "premium_brand": 1
+    },
+    "xc60": {
+      "variants": ["Inscription", "R-Design"],
+      "fuel": ["Petrol", "Hybrid"],
+      "transmission": ["Automatic"],
+      "body": "SUV",
+      "premium_brand": 1
+    },
+    "xc90": {
+      "variants": ["Inscription", "R-Design"],
+      "fuel": ["Petrol", "Hybrid"],
+      "transmission": ["Automatic"],
+      "body": "SUV",
+      "premium_brand": 1
+    }
+  },
+  "jaguar": {
+    "xf": {
+      "variants": ["Pure", "Luxury"],
+      "fuel": ["Petrol"],
+      "transmission": ["Automatic"],
+      "body": "Sedan",
+      "premium_brand": 1
+    },
+    "xe": {
+      "variants": ["Pure", "R-Dynamic"],
+      "fuel": ["Petrol"],
+      "transmission": ["Automatic"],
+      "body": "Sedan",
+      "premium_brand": 1
+    },
+    "f-pace": {
+      "variants": ["Prestige", "R-Dynamic"],
+      "fuel": ["Petrol", "Diesel"],
+      "transmission": ["Automatic"],
+      "body": "SUV",
+      "premium_brand": 1
+    }
+  },
+  "land rover": {
+    "discovery sport": {
+      "variants": ["SE", "HSE"],
+      "fuel": ["Petrol", "Diesel"],
+      "transmission": ["Automatic"],
+      "body": "SUV",
+      "premium_brand": 1
+    },
+    "defender": {
+      "variants": ["110", "90"],
+      "fuel": ["Petrol"],
+      "transmission": ["Automatic"],
+      "body": "SUV",
+      "premium_brand": 1
+    },
+    "range rover": {
+      "variants": ["HSE", "Autobiography"],
+      "fuel": ["Petrol", "Diesel"],
+      "transmission": ["Automatic"],
+      "body": "SUV",
+      "premium_brand": 1
+    }
+  },
+  "mini": {
+    "cooper": {
+      "variants": ["Classic", "Sport"],
+      "fuel": ["Petrol"],
+      "transmission": ["Automatic"],
+      "body": "Hatchback",
+      "premium_brand": 1
+    },
+    "countryman": {
+      "variants": ["Exclusive", "S"],
+      "fuel": ["Petrol"],
+      "transmission": ["Automatic"],
+      "body": "SUV",
+      "premium_brand": 1
+    }
+  },
+  "porsche": {
+    "cayenne": {
+      "variants": ["Standard", "S"],
+      "fuel": ["Petrol"],
+      "transmission": ["Automatic"],
+      "body": "SUV",
+      "premium_brand": 1
+    },
+    "panamera": {
+      "variants": ["4", "Turbo"],
+      "fuel": ["Petrol"],
+      "transmission": ["Automatic"],
+      "body": "Sedan",
+      "premium_brand": 1
+    },
+    "911": {
+      "variants": ["Carrera", "Turbo"],
+      "fuel": ["Petrol"],
+      "transmission": ["Automatic"],
+      "body": "Coupe",
+      "premium_brand": 1
+    },
+    "macan": {
+      "variants": ["Standard", "S"],
+      "fuel": ["Petrol"],
+      "transmission": ["Automatic"],
+      "body": "SUV",
+      "premium_brand": 1
+    }
+  },
+  "lexus": {
+    "nx": {
+      "variants": ["2.0 FWD", "3.5 AWD"],
+      "fuel": ["Petrol", "Hybrid"],
+      "transmission": ["Automatic"],
+      "body": "SUV",
+      "premium_brand": 1
+    },
+    "rx": {
+      "variants": ["300", "450h"],
+      "fuel": ["Petrol", "Hybrid"],
+      "transmission": ["Automatic"],
+      "body": "SUV",
+      "premium_brand": 1
+    },
+    "es": {
+      "variants": ["250", "300h"],
+      "fuel": ["Petrol", "Hybrid"],
+      "transmission": ["Automatic"],
+      "body": "Sedan",
+      "premium_brand": 1
+    },
+    "lx": {
+      "variants": ["500", "600"],
+      "fuel": ["Petrol"],
+      "transmission": ["Automatic"],
+      "body": "SUV",
+      "premium_brand": 1
+    }
+  },
+  "isuzu": {
+    "d-max": {
+      "variants": ["V-Cross", "S-Cab"],
+      "fuel": ["Diesel"],
+      "transmission": ["Manual", "Automatic"],
+      "body": "Pickup",
+      "premium_brand": 0
+    },
+    "mu-x": {
+      "variants": ["V-CROSS", "Club"],
+      "fuel": ["Diesel"],
+      "transmission": ["Automatic"],
+      "body": "SUV",
+      "premium_brand": 0
+    }
+  },
+  "citroen": {
+    "c3 aircross": {
+      "variants": ["Live", "Shine"],
+      "fuel": ["Petrol"],
+      "transmission": ["Manual"],
+      "body": "SUV",
+      "premium_brand": 0
+    },
+    "c5 aircross": {
+      "variants": ["Feel", "Shine"],
+      "fuel": ["Petrol"],
+      "transmission": ["Automatic"],
+      "body": "SUV",
+      "premium_brand": 0
+    }
+  },
+  "byd": {
+    "atto 3": {
+      "variants": ["Base", "Mid", "High"],
+      "fuel": ["Electric"],
+      "transmission": ["Automatic"],
+      "body": "SUV",
+      "premium_brand": 0
+    },
+    "e6": {
+      "variants": ["Comfort", "Luxury"],
+      "fuel": ["Electric"],
+      "transmission": ["Automatic"],
+      "body": "MPV",
+      "premium_brand": 0
+    }
+  },
+  "force": {
+    "gurkha": {
+      "variants": ["GX", "GX Classic"],
+      "fuel": ["Diesel"],
+      "transmission": ["Manual"],
+      "body": "SUV",
+      "premium_brand": 0
+    },
+    "trajet": {
+      "variants": ["2.2", "2.6"],
+      "fuel": ["Diesel"],
+      "transmission": ["Manual"],
+      "body": "SUV",
+      "premium_brand": 0
+    },
+    "traveller": {
+      "variants": ["Intercity", "School"],
+      "fuel": ["Diesel"],
+      "transmission": ["Manual"],
+      "body": "Van",
+      "premium_brand": 0
+    }
+  }
+}

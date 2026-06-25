@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Powered Car Valuation</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="icon" href="/static/assets/favicon.svg" type="image/svg+xml">
+</head>
+
+<body>
+    <div class="page-shell">
+        <header class="hero-banner">
+            <div class="hero-copy">
+                <p class="eyebrow">AI Powered Used Car Cost Estimation System</p>
+                <h1>Predict Used Car Prices </h1>
+                <p class="hero-text">Upload your car images, auto-fill the form, add mileage, age and damage notes, then get the market price, damage cost, confidence, and suggested selling price.</p>
+            </div>
+            <div class="hero-badge">Version 2.0</div>
+        </header>
+
+        <main class="dashboard-grid">
+            <section class="card form-card">
+                <div class="card-header">
+                    <div>
+                        <h2>Car Details</h2>
+                        <p>Add Car specifics and run the AI valuation.</p>
+                    </div>
+                    <span class="badge">Smart Form</span>
+                </div>
+
+                <form id="valuationForm">
+                    <div class="field-row">
+                        <div class="form-group">
+                            <label>Brand</label>
+                            <input id="brandSearch" type="search" placeholder="Search brands" />
+                            <select id="oem">
+                                <option>Loading...</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Model</label>
+                            <input id="modelSearch" type="search" placeholder="Filter models" />
+                            <select id="model">
+                                <option>Select Brand First</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="field-row">
+                        <div class="form-group">
+                            <label>Variant</label>
+                            <select id="variant">
+                                <option>Select Model First</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Premium Brand</label>
+                            <select id="premium_brand" disabled>
+                                <option value="No">No</option>
+                                <option value="Yes">Yes</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="field-row">
+                        <div class="form-group">
+                            <label>Fuel</label>
+                            <select id="fuel" disabled>
+                                <option>Select Model First</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Transmission</label>
+                            <select id="transmission" disabled>
+                                <option>Select Model First</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="field-row">
+                        <div class="form-group wide">
+                            <label>Body Type</label>
+                            <input type="text" id="body" readonly>
+                        </div>
+                    </div>
+
+                    <div class="field-row">
+                        <div class="form-group">
+                            <label>Owner Type</label>
+                            <select id="owner_type">
+                                <option value="first">First</option>
+                                <option value="second">Second</option>
+                                <option value="third">Third</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>City</label>
+                            <input type="text" id="City" value="">
+                        </div>
+                    </div>
+
+                    <div class="field-row">
+                        <div class="form-group">
+                            <label>State</label>
+                            <input type="text" id="state" value="">
+                        </div>
+                        <div class="form-group">
+                            <label>Kilometers Driven (Odometer)</label>
+                            <input type="number" id="km" placeholder="40000" required>
+                        </div>
+                    </div>
+
+                    <div class="field-row">
+                        <div class="form-group">
+                            <label>Car Age</label>
+                            <input type="number" id="car_age" placeholder="5" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Transaction Mode <span style="color: red;">*</span></label>
+                            <select id="transaction_type" required>
+                                <option value="">Select Transaction Mode</option>
+                                <option value="selling">🔴 Selling (I want to sell)</option>
+                                <option value="buying_resale">🟢 Buying for Resale (10% profit)</option>
+                                <option value="buying_personal">🔵 Buying for Personal Use</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="field-row">
+                        <div class="form-group wide">
+                            <label>Damage Description (AI-Powered)</label>
+                            <textarea id="damage_description" rows="4" placeholder="AI will auto-fill damage details from image analysis..." readonly></textarea>
+                        </div>
+                    </div>
+
+                    <div class="vision-section">
+                        <div class="vision-header">
+                            <div>
+                                <h3>AI Vision Upload</h3>
+                                <p>Upload a single primary Car photo to auto-detect brand, model, body type, color, year, and category.</p>
+                            </div>
+                            <button id="analyzeImagesBtn" type="button" class="text-button">Analyze Image</button>
+                        </div>
+                        <div class="image-grid">
+                            <div class="image-slot primary-slot">
+                                <label for="mainImage">Primary Image</label>
+                                <p class="field-note">Required: a clear exterior view of the Car.</p>
+                                <input type="file" id="mainImage" name="main" accept="image/*">
+                            </div>
+                        </div>
+                        <div id="visionResult" class="vision-result hidden"></div>
+                    </div>
+
+                    <!-- DAMAGE DETECTION DISABLED - Feature temporarily disabled -->
+                    <!-- <div class="vision-section" style="margin-top: 20px; display: none;">
+                        <div class="vision-header">
+                            <div>
+                                <h3>🔍 AI Damage Detection</h3>
+                                <p>Upload car image to detect damage automatically using AI vision.</p>
+                            </div>
+                            <button id="analyzeDamageBtn" type="button" class="text-button">Detect Damage</button>
+                        </div>
+                        <div class="image-grid">
+                            <div class="image-slot">
+                                <label for="damageImage">Damage Image</label>
+                                <p class="field-note">Upload image showing potential damage areas.</p>
+                                <input type="file" id="damageImage" name="damage" accept="image/*">
+                            </div>
+                        </div>
+                        <div id="damageResult" class="vision-result hidden"></div>
+                    </div> -->
+
+                    <button id="submitBtn" type="submit" class="primary-button">Predict Car Price</button>
+                </form>
+            </section>
+
+            <aside class="sidebar">
+                <section class="card result-card">
+                    <div class="card-header">
+                        <div>
+                            <h2>Estimated Market Price</h2>
+                            <p>Your AI valuation result.</p>
+                        </div>
+                        <span class="badge accent" id="transactionBadge">Selling</span>
+                    </div>
+                    <div id="price" class="price-tag">₹ --</div>
+                    <div class="result-breakdown">
+                        <div class="result-row">
+                            <span>Market Value</span>
+                            <strong id="marketValue">₹ --</strong>
+                        </div>
+                        <div class="result-row">
+                            <span>Damage Cost</span>
+                            <strong id="damageCost">₹ --</strong>
+                        </div>
+                        <div class="result-row">
+                            <span>Confidence</span>
+                            <strong id="confidenceScore">--%</strong>
+                        </div>
+                        <div class="result-row" id="profitRow" style="display:none;">
+                            <span>Expected Profit</span>
+                            <strong id="profitMargin">₹ --</strong>
+                        </div>
+                        <div class="result-row" id="marginPercentRow" style="display:none;">
+                            <span>Profit Margin %</span>
+                            <strong id="marginPercent">--%</strong>
+                        </div>
+                        <div class="result-row" id="priceRangeRow" style="display:none;">
+                            <span>Fair Price Range</span>
+                            <strong id="priceRange">₹ -- to ₹ --</strong>
+                        </div>
+                        <div class="result-row final-price">
+                            <span id="finalPriceLabel">Transaction Price</span>
+                            <strong id="suggestedPrice">₹ --</strong>
+                        </div>
+                    </div>
+                    <div id="status" class="status-text">Waiting for prediction...</div>
+                    
+                    <!-- Market Intelligence Section (NEW) -->
+                    <div id="marketIntelligence" class="market-intelligence" style="display:none; margin-top: 20px; padding: 15px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border-radius: 8px; color: white;">
+                        <h3 style="margin: 0 0 15px 0; font-size: 16px; display: flex; align-items: center; gap: 8px;">
+                            <span>📊</span> Market Intelligence
+                            <span id="marketConfidenceBadge" style="margin-left: auto; padding: 4px 12px; background: rgba(255,255,255,0.2); border-radius: 12px; font-size: 12px; font-weight: 600;"></span>
+                        </h3>
+                        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 12px; margin-bottom: 15px;">
+                            <div style="background: rgba(255,255,255,0.15); padding: 12px; border-radius: 6px;">
+                                <div style="font-size: 11px; opacity: 0.9; margin-bottom: 4px;">ML Prediction</div>
+                                <div id="mlPrediction" style="font-size: 18px; font-weight: 700;">₹ --</div>
+                            </div>
+                            <div style="background: rgba(255,255,255,0.15); padding: 12px; border-radius: 6px;">
+                                <div style="font-size: 11px; opacity: 0.9; margin-bottom: 4px;">Market Average</div>
+                                <div id="marketAverage" style="font-size: 18px; font-weight: 700;">₹ --</div>
+                            </div>
+                            <div style="background: rgba(255,255,255,0.15); padding: 12px; border-radius: 6px;">
+                                <div style="font-size: 11px; opacity: 0.9; margin-bottom: 4px;">Market Median</div>
+                                <div id="marketMedian" style="font-size: 18px; font-weight: 700;">₹ --</div>
+                            </div>
+                        </div>
+                        <div id="marketInsights" style="font-size: 13px; line-height: 1.6; background: rgba(0,0,0,0.2); padding: 12px; border-radius: 6px;">
+                            <div id="marketSampleSize" style="margin-bottom: 6px;"></div>
+                            <div id="marketAdjustment"></div>
+                        </div>
+                    </div>
+                    
+                    <!-- Pricing Summary Section -->
+                    <div id="pricingSummary" class="pricing-summary" style="display:none; margin-top: 20px; padding: 15px; background: #f8f9fa; border-radius: 8px; border-left: 4px solid #2a7f62;">
+                        <h3 style="margin: 0 0 10px 0; font-size: 16px; color: #2a7f62;">💡 Pricing Breakdown</h3>
+                        <div id="summaryContent" style="font-size: 14px; line-height: 1.8;"></div>
+                    </div>
+                    
+                    <div class="card-actions">
+                        <button id="printReportBtn" class="text-button">Download Report</button>
+                    </div>
+                </section>
+
+                <section class="card history-card">
+                    <div class="card-header">
+                        <div>
+                            <h2>Prediction History</h2>
+                            <p>Server-backed history with search, metrics, and export.</p>
+                        </div>
+                        <div class="history-actions">
+                            <button id="exportHistoryBtn" class="text-button">Export CSV</button>
+                            <button id="clearHistoryBtn" class="text-button">Clear</button>
+                        </div>
+                    </div>
+                    <div class="history-metrics">
+                        <div class="metric-pill">
+                            <span id="historyCount">0</span>
+                            <small>records</small>
+                        </div>
+                        <div class="metric-pill">
+                            <span id="historyAverage">₹ --</span>
+                            <small>avg. price</small>
+                        </div>
+                        <div class="metric-pill">
+                            <span id="historyRecentCity">--</span>
+                            <small>latest city</small>
+                        </div>
+                    </div>
+                    <div class="history-toolbar">
+                        <input id="historySearch" type="search" placeholder="Search history by brand, model, location" />
+                    </div>
+                    <div id="historyList" class="history-list">
+                        <div class="history-empty">No predictions yet. Run your first valuation.</div>
+                    </div>
+                    <div id="viewAllHistoryBtn" style="display:none; text-align: center; margin-top: 10px;">
+                        <button class="text-button" onclick="toggleFullHistory()">📋 View All History</button>
+                    </div>
+                </section>
+            </aside>
+        </main>
+    </div>
+
+    <script src="/static/js/app.js"></script>
+</body>
+
+</html>

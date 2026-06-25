@@ -1,0 +1,85 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.ipynb_checkpoints/
+*.egg-info/
+
+# Virtual Environment
+venv/
+.venv/
+env/
+ENV/
+
+# Environment Variables & Secrets
+.env
+.env.local
+.env.*.local
+*.pem
+*.key
+*.crt
+credentials.json
+secrets.json
+config.json
+
+# Database (keep structure, ignore data)
+*.db
+*.sqlite
+*.sqlite3
+
+# Logs
+*.log
+scraping_output*.log
+etl_full_run.log
+scraping_auto.log
+nohup.out
+
+# OS Files
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Backups
+*.zip
+*.tar.gz
+*backup*.tar.gz
+
+# Ignore Large Dataset Files
+data/*.db
+data/*.sqlite
+data/uploads/
+
+# Training Data CSVs (too large)
+training_data_*.csv
+
+# Keep model files but ignore old versions
+models/vehicle_price_model_v1.pkl
+models/vehicle_price_model_v2.pkl
+models/vehicle_price_model_v3.pkl
+
+# Temporary Files
+*.tmp
+*.bak
+*.cache
+
+# Build
+build/
+dist/
+*.egg-info/
+
+# AWS Credentials
+.aws/
+aws_credentials.txt
+
+# Jupyter Notebooks (if any)
+*.ipynb
+
+# Test outputs
+test_output/
+debug_output/

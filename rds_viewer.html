@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RDS Database Viewer - 801 Listings</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 20px; min-height: 100vh; }
+        .container { max-width: 1600px; margin: 0 auto; background: white; border-radius: 15px; box-shadow: 0 20px 60px rgba(0,0,0,0.3); overflow: hidden; }
+        .header { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 30px; text-align: center; }
+        .header h1 { font-size: 2.5em; margin-bottom: 10px; }
+        .header p { font-size: 1.1em; opacity: 0.9; }
+        .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 20px; padding: 30px; background: #f8f9fa; }
+        .stat-card { background: white; padding: 20px; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); text-align: center; transition: transform 0.2s; }
+        .stat-card:hover { transform: translateY(-5px); }
+        .stat-card h3 { color: #667eea; font-size: 2em; margin-bottom: 5px; }
+        .stat-card p { color: #666; font-size: 0.9em; }
+        .filters { padding: 20px 30px; background: white; border-bottom: 2px solid #f0f0f0; display: flex; gap: 15px; flex-wrap: wrap; align-items: center; }
+        .filter-group { display: flex; flex-direction: column; gap: 5px; }
+        .filter-group label { font-size: 0.85em; color: #666; font-weight: 600; }
+        .filter-group input, .filter-group select { padding: 8px 12px; border: 2px solid #e0e0e0; border-radius: 5px; font-size: 0.9em; min-width: 150px; }
+        .filter-group input:focus, .filter-group select:focus { outline: none; border-color: #667eea; }
+        .table-container { padding: 30px; overflow-x: auto; }
+        table { width: 100%; border-collapse: collapse; background: white; }
+        thead { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; position: sticky; top: 0; z-index: 10; }
+        th { padding: 15px; text-align: left; font-weight: 600; cursor: pointer; user-select: none; white-space: nowrap; }
+        th:hover { background: rgba(255,255,255,0.1); }
+        td { padding: 12px 15px; border-bottom: 1px solid #f0f0f0; }
+        tbody tr:hover { background: #f8f9fa; }
+        .badge { display: inline-block; padding: 4px 8px; border-radius: 4px; font-size: 0.85em; font-weight: 600; }
+        .badge-cars24 { background: #e3f2fd; color: #1976d2; }
+        .badge-cardekho { background: #f3e5f5; color: #7b1fa2; }
+        .price { color: #2e7d32; font-weight: 600; }
+        .no-data { text-align: center; padding: 50px; color: #999; font-size: 1.2em; }
+        .pagination { display: flex; justify-content: center; align-items: center; gap: 10px; padding: 20px; background: #f8f9fa; }
+        .pagination button { padding: 8px 16px; border: 2px solid #667eea; background: white; color: #667eea; border-radius: 5px; cursor: pointer; font-weight: 600; }
+        .pagination button:hover { background: #667eea; color: white; }
+        .pagination button:disabled { opacity: 0.5; cursor: not-allowed; }
+        .pagination span { color: #666; font-weight: 600; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🚗 RDS Database Viewer</h1>
+            <p>AI-Powered Car Valuation System - Live Market Data (Updated: June 23, 2026)</p>
+        </div>
+        
+        <div class="stats">
+            <div class="stat-card"><h3 id="totalListings">-</h3><p>Total Listings</p></div>
+            <div class="stat-card"><h3 id="totalCities">-</h3><p>Cities Covered</p></div>
+            <div class="stat-card"><h3 id="totalBrands">-</h3><p>Brands Available</p></div>
+            <div class="stat-card"><h3 id="avgPrice">-</h3><p>Average Price</p></div>
+            <div class="stat-card"><h3 id="priceRange">-</h3><p>Price Range</p></div>
+        </div>
+        
+        <div class="filters">
+            <div class="filter-group"><label>🔍 Search</label><input type="text" id="searchInput" placeholder="Brand, model, city..."></div>
+            <div class="filter-group"><label>🌆 City</label><select id="cityFilter"><option value="">All Cities</option></select></div>
+            <div class="filter-group"><label>🚗 Brand</label><select id="brandFilter"><option value="">All Brands</option></select></div>
+            <div class="filter-group"><label>📡 Source</label><select id="sourceFilter"><option value="">All Sources</option><option value="cars24">Cars24</option><option value="cardekho">CarDekho</option></select></div>
+            <div class="filter-group"><label>📅 Year</label><select id="yearFilter"><option value="">All Years</option></select></div>
+        </div>
+        
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th onclick="sortTable('brand')">Brand ↕</th>
+                        <th onclick="sortTable('model')">Model ↕</th>
+                        <th onclick="sortTable('year')">Year ↕</th>
+                        <th onclick="sortTable('city')">City ↕</th>
+                        <th onclick="sortTable('price')">Price ↕</th>
+                        <th onclick="sortTable('kilometers')">Kilometers ↕</th>
+                        <th>Fuel</th>
+                        <th>Transmission</th>
+                        <th>Source</th>
+                        <th>Last Seen</th>
+                    </tr>
+                </thead>
+                <tbody id="tableBody">
+                    <tr><td colspan="10" class="no-data">Loading 801 listings...</td></tr>
+                </tbody>
+            </table>
+        </div>
+        
+        <div class="pagination">
+            <button id="prevBtn" onclick="changePage(-1)">← Previous</button>
+            <span id="pageInfo">Page 1 of 1</span>
+            <button id="nextBtn" onclick="changePage(1)">Next →</button>
+        </div>
+    </div>
+    
+    <script src="data.js"></script>
+    <script>
+        let currentData = [], filteredData = [], sortDirection = {}, currentPage = 1;
+        const itemsPerPage = 50;
+        
+        document.addEventListener('DOMContentLoaded', function() {
+            currentData = marketData;
+            filteredData = currentData;
+            updateStats();
+            populateFilters();
+            renderTable();
+            
+            document.getElementById('searchInput').addEventListener('input', filterData);
+            document.getElementById('cityFilter').addEventListener('change', filterData);
+            document.getElementById('brandFilter').addEventListener('change', filterData);
+            document.getElementById('sourceFilter').addEventListener('change', filterData);
+            document.getElementById('yearFilter').addEventListener('change', filterData);
+        });
+        
+        function updateStats() {
+            const total = currentData.length;
+            const cities = new Set(currentData.map(d => d.city)).size;
+            const brands = new Set(currentData.map(d => d.brand)).size;
+            const avgPrice = Math.round(currentData.reduce((sum, d) => sum + d.price, 0) / total);
+            const minPrice = Math.min(...currentData.map(d => d.price));
+            const maxPrice = Math.max(...currentData.map(d => d.price));
+            
+            document.getElementById('totalListings').textContent = total;
+            document.getElementById('totalCities').textContent = cities;
+            document.getElementById('totalBrands').textContent = brands;
+            document.getElementById('avgPrice').textContent = '₹' + (avgPrice / 100000).toFixed(1) + 'L';
+            document.getElementById('priceRange').textContent = '₹' + (minPrice / 100000).toFixed(1) + 'L - ₹' + (maxPrice / 100000).toFixed(1) + 'L';
+        }
+        
+        function populateFilters() {
+            const cities = [...new Set(currentData.map(d => d.city))].sort();
+            const brands = [...new Set(currentData.map(d => d.brand))].sort();
+            const years = [...new Set(currentData.map(d => d.year))].sort((a, b) => b - a);
+            
+            cities.forEach(city => document.getElementById('cityFilter').innerHTML += `<option value="${city}">${city}</option>`);
+            brands.forEach(brand => document.getElementById('brandFilter').innerHTML += `<option value="${brand}">${brand}</option>`);
+            years.forEach(year => document.getElementById('yearFilter').innerHTML += `<option value="${year}">${year}</option>`);
+        }
+        
+        function filterData() {
+            const search = document.getElementById('searchInput').value.toLowerCase();
+            const city = document.getElementById('cityFilter').value;
+            const brand = document.getElementById('brandFilter').value;
+            const source = document.getElementById('sourceFilter').value;
+            const year = document.getElementById('yearFilter').value;
+            
+            filteredData = currentData;
+            if (search) filteredData = filteredData.filter(d => d.brand.toLowerCase().includes(search) || d.model.toLowerCase().includes(search) || d.city.toLowerCase().includes(search));
+            if (city) filteredData = filteredData.filter(d => d.city === city);
+            if (brand) filteredData = filteredData.filter(d => d.brand === brand);
+            if (source) filteredData = filteredData.filter(d => d.source === source);
+            if (year) filteredData = filteredData.filter(d => d.year == year);
+            
+            currentPage = 1;
+            renderTable();
+        }
+        
+        function sortTable(column) {
+            sortDirection[column] = sortDirection[column] === 'asc' ? 'desc' : 'asc';
+            filteredData.sort((a, b) => {
+                const aVal = a[column], bVal = b[column];
+                if (column === 'price' || column === 'year' || column === 'kilometers') {
+                    return sortDirection[column] === 'asc' ? aVal - bVal : bVal - aVal;
+                }
+                return sortDirection[column] === 'asc' ? String(aVal).localeCompare(String(bVal)) : String(bVal).localeCompare(String(aVal));
+            });
+            renderTable();
+        }
+        
+        function changePage(direction) {
+            const totalPages = Math.ceil(filteredData.length / itemsPerPage);
+            currentPage += direction;
+            if (currentPage < 1) currentPage = 1;
+            if (currentPage > totalPages) currentPage = totalPages;
+            renderTable();
+        }
+        
+        function renderTable() {
+            const tbody = document.getElementById('tableBody');
+            const totalPages = Math.ceil(filteredData.length / itemsPerPage);
+            const start = (currentPage - 1) * itemsPerPage;
+            const pageData = filteredData.slice(start, start + itemsPerPage);
+            
+            if (filteredData.length === 0) {
+                tbody.innerHTML = '<tr><td colspan="10" class="no-data">No data found</td></tr>';
+                document.getElementById('pageInfo').textContent = 'No results';
+                document.getElementById('prevBtn').disabled = true;
+                document.getElementById('nextBtn').disabled = true;
+                return;
+            }
+            
+            tbody.innerHTML = pageData.map(item => `
+                <tr>
+                    <td>${item.brand}</td>
+                    <td>${item.model}</td>
+                    <td>${item.year}</td>
+                    <td>${item.city}</td>
+                    <td class="price">₹${(item.price / 100000).toFixed(2)}L</td>
+                    <td>${item.kilometers.toLocaleString()} km</td>
+                    <td>${item.fuel || '-'}</td>
+                    <td>${item.transmission || '-'}</td>
+                    <td><span class="badge badge-${item.source}">${item.source}</span></td>
+                    <td>${item.last_seen_at || '-'}</td>
+                </tr>
+            `).join('');
+            
+            document.getElementById('pageInfo').textContent = `Page ${currentPage} of ${totalPages} (${filteredData.length} listings)`;
+            document.getElementById('prevBtn').disabled = currentPage === 1;
+            document.getElementById('nextBtn').disabled = currentPage === totalPages;
+        }
+    </script>
+</body>
+</html>
