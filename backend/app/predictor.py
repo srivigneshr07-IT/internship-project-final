@@ -57,14 +57,25 @@ def predict_price(input_df):
         import pandas as pd
         
         # Extract values (handle both dict and DataFrame input)
-        brand = input_df['brand'].values[0] if 'brand' in input_df else input_df.get('brand', 'Maruti')
-        model_name = input_df['model'].values[0] if 'model' in input_df else input_df.get('model', 'Swift')
-        year = int(input_df['year'].values[0]) if 'year' in input_df else int(input_df.get('myear', 2020))
-        kilometers = float(input_df['kilometers'].values[0]) if 'kilometers' in input_df else 50000
-        fuel = input_df['fuel_type'].values[0] if 'fuel_type' in input_df else input_df.get('fuel', 'Petrol')
-        transmission = input_df['transmission'].values[0] if 'transmission' in input_df else 'Manual'
-        city = input_df['city'].values[0] if 'city' in input_df else 'Chennai'
-        owner_type = input_df['owner_type'].values[0] if 'owner_type' in input_df else 'First'
+        if isinstance(input_df, pd.DataFrame):
+            brand = input_df['brand'].iloc[0] if 'brand' in input_df.columns else 'Maruti'
+            model_name = input_df['model'].iloc[0] if 'model' in input_df.columns else 'Swift'
+            year = int(input_df['myear'].iloc[0]) if 'myear' in input_df.columns else int(input_df['year'].iloc[0]) if 'year' in input_df.columns else 2020
+            kilometers = float(input_df['kilometers'].iloc[0]) if 'kilometers' in input_df.columns else 50000
+            fuel = input_df['fuel_type'].iloc[0] if 'fuel_type' in input_df.columns else 'Petrol'
+            transmission = input_df['transmission'].iloc[0] if 'transmission' in input_df.columns else 'Manual'
+            city = input_df['city'].iloc[0] if 'city' in input_df.columns else 'Chennai'
+            owner_type = input_df['owner_type'].iloc[0] if 'owner_type' in input_df.columns else 'First'
+        else:
+            # Dict input
+            brand = input_df.get('brand', 'Maruti')
+            model_name = input_df.get('model', 'Swift')
+            year = int(input_df.get('myear', input_df.get('year', 2020)))
+            kilometers = float(input_df.get('kilometers', 50000))
+            fuel = input_df.get('fuel_type', 'Petrol')
+            transmission = input_df.get('transmission', 'Manual')
+            city = input_df.get('city', 'Chennai')
+            owner_type = input_df.get('owner_type', 'First')
         
         # Calculate derived features
         car_age = int(2026 - year)
