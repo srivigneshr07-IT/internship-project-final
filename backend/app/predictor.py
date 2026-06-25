@@ -56,15 +56,19 @@ def predict_price(input_df):
         # Model v2/v3/ensemble - need to encode features
         import pandas as pd
         
-        # Extract values
+        # Extract values (handle both dict and DataFrame input)
         brand = input_df['brand'].values[0] if 'brand' in input_df else input_df.get('brand', 'Maruti')
         model_name = input_df['model'].values[0] if 'model' in input_df else input_df.get('model', 'Swift')
-        year = input_df['year'].values[0] if 'year' in input_df else input_df.get('myear', 2020)
-        kilometers = input_df['kilometers'].values[0] if 'kilometers' in input_df else 50000
+        year = int(input_df['year'].values[0]) if 'year' in input_df else int(input_df.get('myear', 2020))
+        kilometers = float(input_df['kilometers'].values[0]) if 'kilometers' in input_df else 50000
         fuel = input_df['fuel_type'].values[0] if 'fuel_type' in input_df else input_df.get('fuel', 'Petrol')
         transmission = input_df['transmission'].values[0] if 'transmission' in input_df else 'Manual'
         city = input_df['city'].values[0] if 'city' in input_df else 'Chennai'
         owner_type = input_df['owner_type'].values[0] if 'owner_type' in input_df else 'First'
+        
+        # Calculate derived features
+        car_age = int(2026 - year)
+        km_per_year = float(kilometers / (car_age + 1))
         
         # Normalize brand names (Mercedes-Benz → Mercedes)
         brand = brand.replace('Mercedes-Benz', 'Mercedes').replace('Land Rover', 'Mahindra')
@@ -72,10 +76,6 @@ def predict_price(input_df):
         # Normalize owner type (Second/Third/Fourth → First)
         if owner_type not in ['First']:
             owner_type = 'First'
-        
-        # Calculate derived features
-        car_age = 2026 - year
-        km_per_year = kilometers / (car_age + 1)
         
         # Brand and city tiers
         brand_tier_map = {
@@ -154,9 +154,8 @@ def predict_price(input_df):
             elif brand_tier == 'premium':
                 base_price = 600000
             
-            # Adjust for age (convert to scalar if needed)
-            car_age_val = int(car_age) if not isinstance(car_age, (int, float)) else car_age
-            age_factor = max(0.5, 1 - (car_age_val * 0.08))
+            # Adjust for age (car_age is already int)
+            age_factor = max(0.5, 1 - (car_age * 0.08))
             return float(base_price * age_factor)
     else:
         # Model v1 - direct prediction
